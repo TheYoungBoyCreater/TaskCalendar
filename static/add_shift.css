@@ -1,0 +1,67 @@
+.addshift {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.addshift h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.addshift .links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.addshift .links a {
+    color: #333;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.addshift label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.addshift input[type="radio"] {
+    margin-right: 5px;
+}
+
+.addshift input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.addshift .msg {
+    color: #ff0000;
+    font-size: 14px;
+}
+
+.addshift input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.addshift input[type="submit"]:hover {
+    background-color: #555;
+}

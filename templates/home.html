@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TaskCalendarHome</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.js"></script>
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1>Calendar</h1>
+				<p>login: {{ username }}</p>
+                <a href="{{ url_for('home') }}"><i class="fas fa-home"></i>Home</a>
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<a href="{{ url_for('addevent') }}"><i class="fas fa-addevent"></i>予定追加</a>
+				<a href="{{ url_for('showeventfordelete') }}"><i class="fas fa-showeventfordelete"></i>予定削除</a>
+				<a href="{{ url_for('showeventforupdate') }}"><i class="fas fa-showeventforupdate"></i>予定更新</a>
+				<a href="{{ url_for('addshift') }}"><i class="shift"></i>シフト追加</a>
+				<a href="{{ url_for('add_template') }}"><i class="byte"></i>テンプレート追加</a> 
+				<a href="{{ url_for('view_template') }}"><i class="del_byte"></i>テンプレート削除</a>
+				<a href="{{ url_for('memo')}}"><i class="fas fa-showeventformemo"></i>メモ</a>
+			</div>
+			<div>
+				<h1>今月分の給料</h1>
+    			<p>給料: {{ m_salaly }}円</p>
+			</div> 
+		</nav>
+		<div id="calendar"></div>
+    	<script>
+        	
+			var calendarEl = document.getElementById('calendar');
+
+        	var calendar = new FullCalendar.Calendar(calendarEl, {
+				headerToolbar: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'dayGridYear, dayGridMonth, timeGridWeek'
+				},
+				initialView: 'dayGridMonth',
+				locale: 'ja',
+				buttonText: {
+                    prev:     '<',
+                    next:     '>',
+                    prevYear: '<<',
+                    nextYear: '>>',
+                    today:    '今日',
+					year:	  '年',
+                    month:    '月',
+                    week:     '週',
+                    day:      '日',
+                    list:     '一覧'
+                },
+				
+				events: {
+					url: '/taskcalendar/data',
+					error: function() {
+						$('#script-warning').show();
+					}
+				},
+			});
+
+
+        	calendar.render();
+    	</script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.register {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register .links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register .links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.register .links a.active {
+    color: #333;
+    border-bottom: 2px solid #333;
+}
+
+.register form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.register form input[type="text"],
+.register form input[type="password"],
+.register form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.register form .msg {
+    margin-top: 10px;
+    color: #ff0000;
+    font-size: 14px;
+}
+
+.register form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.register form input[type="submit"]:hover {
+    background-color: #555;
+}

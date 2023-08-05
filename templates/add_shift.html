@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>add shift</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='add_shift.css') }}">
+    </head>
+    <body>
+        <div class="addshift">
+            <h1>シフト登録</h1>
+            <div class="links">
+                <a href="{{ url_for('home') }}">ホームに戻る</a>
+            </div>
+
+            
+
+            <form action="{{ url_for('addshift') }}" method="post" autocomplete="off">
+                <label for="title">
+                        <i class="fas fa-title"></i>
+                    {% for template in templates %}
+                    <input type="radio" name="template_ids[]" value="{{ template.id }}" id="template"> {{ template.byte_name }} {{ template.byte_salaly }} {{ template.byte_tcost }}<br>
+                    {% endfor %}
+                </label>
+				<!-- <label for="title"> 
+					<i class="fas fa-title"></i>
+				</label>
+				<input type="text" name="title" placeholder="Title" id="title" required>-->
+				<label for="start">
+					<i class="fas fa-start"></i>
+				</label>
+				<input type="datetime-local" name="start" placeholder="Start" id="start" required>
+                <label for="end">
+					<i class="fas fa-end"></i>
+				</label>
+				<input type="datetime-local" name="end" placeholder="End" id="end">
+                <div class="msg">{{ msg }}</div>
+				<input type="submit" value="登録">
+			</form>
+        </div>
+    </body>
+</html>

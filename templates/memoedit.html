@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>メモ編集</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='memoedit.css') }}">
+</head>
+<body>
+    <form method="POST" action="{{ url_for('memoedit', id=id) }}">
+        <div>
+          <label for="content">投稿内容:</label>
+          <textarea id="content" name="content" rows="5" required>{{ content }}</textarea>
+        </div>
+        <div class="msg">{{ msg }}</div>
+        <button type="submit">更新</button>
+    </form>
+</body>

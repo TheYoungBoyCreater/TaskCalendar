@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>show templates</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_template.css') }}">
+</head>
+<body>
+    <h1>削除するテンプレートを選択してください</h1>
+    <a href="{{ url_for('home') }}">ホームに戻る</a>
+    <form action="{{ url_for('del_template') }}" method="POST">
+        {% for template in templates %}
+        <input type="checkbox" name="template_ids[]" value="{{ template.id }}"> {{ template.byte_name }} {{ template.byte_salaly }} {{ template.byte_tcost }}<br>
+        {% endfor %}
+        <div class="msg">{{ msg }}</div>
+        <button type="submit">テンプレートを削除</button>
+    </form>
+</body>
+</html>

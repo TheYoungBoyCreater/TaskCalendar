@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>deleteeventviewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='showeventfordelete.css') }}">
+</head>
+<body>
+    <h1>削除するイベントを選択してください</h1>
+    <a href="{{ url_for('home') }}">ホームに戻る</a>
+    <form action="{{ url_for('deleteevent') }}" method="POST">
+        {% for event in events %}
+        <input type="checkbox" name="event_ids[]" value="{{ event.id }}"> {{ event.title }} {{ event.start }} {{ event.end }}<br>
+        {% endfor %}
+        <div class="msg">{{ msg }}</div>
+        <button type="submit">イベントを削除</button>
+    </form>
+</body>
+</html>

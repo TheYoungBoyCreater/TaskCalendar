@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>add template</title>
+    </head>
+    <body>
+        <h1> バイト情報入力 </h1>
+        <div class="links">
+            <a href="{{ url_for('home') }}">ホームに戻る</a>
+            <link rel="stylesheet" href="{{ url_for('static', filename='add_template.css') }}">
+        </div>
+
+        {% if msg %}
+        <div class="message">{{ msg }}</div>
+        {% endif %}
+
+        <form action="{{ url_for('add_template')}}" method="post" class="form-container">
+
+        <div class="form-group">
+            <label for="title">バイト名</label>
+            <input type="text" name="byte_name"
+                   placeholder="(例) セブンイレブン">
+        </div>
+
+        <div class="form-group">
+            <label for="salaly">時給    </label>
+            <input type="number" name="byte_salaly"
+                   placeholder="(例) 1000">
+            <span class="currency">円</span>
+        </div>
+
+        <div class="form-group">
+            <label for="travel_cost">交通費  </label>
+            <input type="number" name="byte_tcost"
+                   placeholder="(例) 200">
+            <span class="currency">円</span>
+        </div>
+
+        <button type="submit" name="add_template" class="btn-submit">登録</button>
+    </form>
+    </body>
+</html>
+
+
+    
+    
+

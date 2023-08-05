@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>updateeventviewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='showeventforupdate.css') }}">
+</head>
+<body>
+    <h1>更新するイベントを選択してください</h1>
+    <a href="{{ url_for('home') }}">ホームに戻る</a>
+    <form action="{{ url_for('updateevent') }}" method="POST">
+        {% for event in events %}
+        <input type="radio" name="event_ids[]" value="{{ event.id }}"> {{ event.title }} {{ event.start }} {{ event.end }}<br>
+        {% endfor %}
+        <input type="text" name="title" placeholder="Title" id="title" required>
+		    <label for="start">
+			    <i class="fas fa-start"></i>
+		    </label>
+		<input type="datetime-local" name="start" placeholder="Start" id="start" required>
+            <label for="end">
+				<i class="fas fa-end"></i>
+			</label>
+		<input type="datetime-local" name="end" placeholder="End" id="end">
+             <label for="allday">
+				<i class="fas fa-allday">終日</i>
+			</label>
+        <input type="radio" name="allday" value="allday" placeholder="Allday" id="allday">
+            <label for="allday">
+				<i class="fas fa-allday">終日ではない</i>
+			</label>
+        <input type="radio" name="allday" value="notallday" placeholder="Allday" id="allday">
+        <div class="msg">{{ msg }}</div>
+        <button type="submit">イベントを更新</button>
+    </form>
+</body>
+</html>

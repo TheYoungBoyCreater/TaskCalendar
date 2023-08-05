@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>add event</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='addevent.css') }}">
+    </head>
+    <body>
+        <div class="addevent">
+            <h1>予定登録</h1>
+            <div class="links">
+                <a href="{{ url_for('home') }}">ホームに戻る</a>
+            </div>
+            <form action="{{ url_for('addevent') }}" method="post" autocomplete="off">
+				<label for="title">
+					<i class="fas fa-title"></i>
+				</label>
+				<input type="text" name="title" placeholder="Title" id="title" required>
+				<label for="start">
+					<i class="fas fa-start"></i>
+				</label>
+				<input type="datetime-local" name="start" placeholder="Start" id="start" required>
+                <label for="end">
+					<i class="fas fa-end"></i>
+				</label>
+				<input type="datetime-local" name="end" placeholder="End" id="end">
+                <label for="allday">
+					<i class="fas fa-allday">終日</i>
+				</label>
+                <input type="radio" name="allday" value="allday" placeholder="Allday" id="allday">
+                <label for="allday">
+					<i class="fas fa-allday">終日ではない</i>
+				</label>
+                <input type="radio" name="allday" value="notallday" placeholder="Allday" id="allday">
+                <div class="msg">{{ msg }}</div>
+				<input type="submit" value="登録">
+			</form>
+        </div>
+    </body>
+</html>
